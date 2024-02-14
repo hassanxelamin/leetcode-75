@@ -1,0 +1,12 @@
+- **Decision 1:** Iterate through both strings simultaneously using a `while` loop.
+    - **Why**: The goal is to alternate characters from `word1` and `word2`. A `while` loop is suitable here because it allows us to iterate through both strings character by character, ensuring that we can alternate between them. The loop continues as long as there are characters left in both strings.
+- **Decision 2:** Use two separate indices (`i` and `j`) to keep track of positions in `word1` and `word2`.
+    - **Why:** Since we're dealing with two different strings, we need a way to track our position in each string independently. This is why two indices, `i` for `word1` and `j` for `word2`, are necessary. They allow us to access the correct character from each string during each iteration of the loop.
+- **Decision 3:** Append characters from `word1` and `word2` to a list `letters`.
+    - **Why:** Python strings are immutable, so repeatedly concatenating characters to a string is inefficient. By using a list, we take advantage of its mutability. We can append characters one by one, which is a much more efficient process. This way, we build up the merged string in a mutable format.
+- **Decision 4:** After the loop, append any remaining characters from `word1` and `word2` to the list.
+    - **Why:** The strings `word1` and `word2` may be of different lengths. Once the shorter string is completely iterated over, the remaining characters of the longer string still need to be included in the result. Appending the remaining substring of the longer string ensures that no characters are left out.
+- **Decision 5:** Use `"".join(letters)` to convert the list of characters back into a string.
+    - **Why:** After accumulating all the necessary characters in the list `letters`, the final step is to convert this list back into a string. The `join()` method efficiently concatenates the elements of the list into a single string. This is much more efficient than concatenating characters one by one, especially for long strings.
+- **Decision 6:** Return the resulting string.
+    - **Why:** The function’s purpose is to return the new merged string. Once all the steps are completed and the final string is formed, it is returned as the output of the function.
